@@ -18,8 +18,8 @@ def pregunta_01():
     df = pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/regresion-lineal-basica-gapminder-ATHidalgo/main/gm_2008_region.csv")
 
     # Asigne la columna "life" a `y` y la columna "fertility" a `X`
-    y = df["life"]
-    X = df["fertility"]
+    y = df["life"].array
+    X = df["fertility"].array
 
     # Imprima las dimensiones de `y`
     print(y.shape)
@@ -75,10 +75,10 @@ def pregunta_03():
     df = pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/regresion-lineal-basica-gapminder-ATHidalgo/main/gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df["fertility"]
+    X_fertility = df["fertility"].array
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df["life"]
+    y_life = df["life"].array
 
     # Importe LinearRegression
     from sklearn.linear_model import  LinearRegression
@@ -120,10 +120,10 @@ def pregunta_04():
     df =  pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/regresion-lineal-basica-gapminder-ATHidalgo/main/gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df["fertility"]
+    X_fertility = df["fertility"].array
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df["life"]
+    y_life = df["life"].array
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
