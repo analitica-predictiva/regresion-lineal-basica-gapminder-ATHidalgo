@@ -18,8 +18,8 @@ def pregunta_01():
     df = pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/regresion-lineal-basica-gapminder-ATHidalgo/main/gm_2008_region.csv")
 
     # Asigne la columna "life" a `y` y la columna "fertility" a `X`
-    y = df["life"].array
-    X = df["fertility"].array
+    y = np.array(df["life"])
+    X = np.array(df["fertility"])
 
     # Imprima las dimensiones de `y`
     print(y.shape)
@@ -28,10 +28,10 @@ def pregunta_01():
     print(X.shape)
 
     # Transforme `y` a un array de numpy usando reshape
-    y_reshaped = y.reshape(-1, 1)
+    y_reshaped = y.reshape(len(y), 1)
 
     # Trasforme `X` a un array de numpy usando reshape
-    X_reshaped = X.reshape(-1,1)
+    X_reshaped = X.reshape(len(X),1)
 
     # Imprima las nuevas dimensiones de `y`
     print(y_reshaped.shape)
@@ -59,7 +59,7 @@ def pregunta_02():
     print(f"{df['life'].mean():.4f}")
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(df['fertility'].dtype)
+    print(type(df['fertility']))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
     print(f"{df['GDP'].corr(df['life']):.4f}")
@@ -75,10 +75,10 @@ def pregunta_03():
     df = pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/regresion-lineal-basica-gapminder-ATHidalgo/main/gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df["fertility"].array
+    X_fertility = df.fertility.values.reshape(-1, 1)
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df["life"].array
+    y_life = df.life.values.reshape(-1, 1)
 
     # Importe LinearRegression
     from sklearn.linear_model import  LinearRegression
@@ -120,17 +120,17 @@ def pregunta_04():
     df =  pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/regresion-lineal-basica-gapminder-ATHidalgo/main/gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df["fertility"].array
+    X_fertility = df.fertility.values.reshape(-1, 1)
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df["life"].array
+    y_life = df.life.values.reshape(-1, 1)
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
     (X_train, X_test, y_train, y_test,) = train_test_split(
         X_fertility,
         y_life,
-        test_size=0.2,
+        test_size=0.20,
         random_state=53,
     )
 
